@@ -2,12 +2,16 @@
     "version": "2.0.0.1",
     "description": "人工桌面",
     "homepage": "https://n0va.mihoyo.com",
+    "license": {
+        "identifier": "Unknown"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://n0va-static.mihoyo.com/app/dp/5f17af398d20e6ddc9767e5a/20210923201028/N0vaDesktop_2.0.0.4_mihoyo.exe#N0vaDesktop.7z",
+            "url": "https://n0va-static.mihoyo.com/app/dp/5f17af398d20e6ddc9767e5a/20210923201028/N0vaDesktop_2.0.0.4_mihoyo.exe#/dl.7z",
             "hash": "B4AC50F38A5BDBB86CDF40C8685B6A3A08660FEFF0D015DA19774298BEE3B111"
         }
     },
     "shortcuts": [["N0vaDesktop.exe", "人工桌面"]],
+    "bin": "N0vaDesktop.exe",
     "persist": ["N0vaDesktopCache/n0va"]
 }

@@ -2,6 +2,9 @@
     "version": "5.11",
     "description": "体验极致模拟 Mac OS 系统桌面",
     "homepage": "https://www.mydockfinder.com",
+    "license": {
+        "identifier": "Unknown"
+    },
     "architecture": {
         "64bit": {
             "url": "https://download.fastgit.org/mydockfinder/mydockfinder-for-Win10-Win11/releases/download/5.11/MyDockFinder.zip",
@@ -18,12 +21,8 @@
             ]
         }
     },
-    "shortcuts": [
-        [
-            "Dock_64.exe",
-            "Dock"
-        ]
-    ],
+    "shortcuts": [["Dock_64.exe", "Dock"]],
+    "bin": "Dock_64.exe",
     "persist": [
         "backup",
         "launchpad",
@@ -39,6 +38,9 @@
             "64bit": {
                 "url": "https://download.fastgit.org/mydockfinder/mydockfinder-for-Win10-Win11/releases/download/$version/MyDockFinder.zip"
             }
+        },
+        "hash": {
+            "mode": "download"
         }
     }
 }

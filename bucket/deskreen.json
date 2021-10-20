@@ -14,6 +14,7 @@
         }
     },
     "shortcuts": [["Deskreen.exe", "Deskreen"]],
+    "bin": "Deskreen.exe",
     "checkver": {
         "github": "https://github.com/pavlobu/deskreen"
     },
@@ -24,8 +25,7 @@
             }
         },
         "hash": {
-            "url": "$baseurl/latest.yml",
-            "regex": "$sha512"
+            "mode": "download"
         }
     }
 }

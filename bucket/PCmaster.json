@@ -1,9 +1,12 @@
 {
     "version": "6.25",
     "homepage": "https://mofang.ruanmei.com",
+    "license": {
+        "identifier": "Unknown"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://d.ruanmei.com/pcmaster/pcmastersetup_6.25.exe#PCmaster.7z",
+            "url": "https://d.ruanmei.com/pcmaster/pcmastersetup_6.25.exe#/dl.7z",
             "hash": "a72fb3706d55db62835a3f7b1516b81bbd4a719c5a82fad403bcc2962f62a6bf",
             "pre_install": [
                 "move \"$dir\\`$APPDATA\\Microsoft\\Internet Explorer\\Quick Launch\\*\" $dir",
@@ -12,15 +15,53 @@
         }
     },
     "shortcuts": [
-        ["boostmaster.exe", "PCmaster/boostmaster"],
-        ["cleanmaster.exe", "PCmaster/cleanmaster"],
-        ["mydesk.exe", "PCmaster/mydesk"],
-        ["mytime.exe", "PCmaster/mytime"],
-        ["pcmaster.exe", "PCmaster/pcmaster"],
-        ["softmaster.exe", "PCmaster/softmaster"],
-        ["virtualdrivemaster.exe", "PCmaster/virtualdrivemaster"],
-        ["visualmaster.exe", "PCmaster/visualmaster"],
-        ["winmaster.exe", "PCmaster/winmaster"]
+        [
+            "boostmaster.exe",
+            "PCmaster/boostmaster"
+        ],
+        [
+            "cleanmaster.exe",
+            "PCmaster/cleanmaster"
+        ],
+        [
+            "mydesk.exe",
+            "PCmaster/mydesk"
+        ],
+        [
+            "mytime.exe",
+            "PCmaster/mytime"
+        ],
+        [
+            "pcmaster.exe",
+            "PCmaster/pcmaster"
+        ],
+        [
+            "softmaster.exe",
+            "PCmaster/softmaster"
+        ],
+        [
+            "virtualdrivemaster.exe",
+            "PCmaster/virtualdrivemaster"
+        ],
+        [
+            "visualmaster.exe",
+            "PCmaster/visualmaster"
+        ],
+        [
+            "winmaster.exe",
+            "PCmaster/winmaster"
+        ]
     ],
-    "persist": ["config"]
+    "bin": "pcmaster.exe",
+    "persist": "config",
+    "checkver": {
+        "url": "https://mofang.ruanmei.com",
+        "regex": "版本：(\\d+\\.\\d+)"
+    },
+    "autoupdate": {
+        "url": "https://d.ruanmei.com/pcmaster/pcmastersetup_$version.exe#/dl.7z",
+        "hash": {
+            "mode": "download"
+        }
+    }
 }
