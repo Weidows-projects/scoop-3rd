@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @Date: 2021-10-08 18:09:46
  * @LastEditors: Weidows
- * @LastEditTime: 2021-10-14 10:32:24
+ * @LastEditTime: 2021-10-29 00:03:26
  * @FilePath: \scoop-3rd\README.md
  * @Description:
  * @!: *********************************************************************
@@ -30,3 +30,7 @@ scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
 3. use powershell to check likes: `checkver.ps1 deskreen -f`
 
 4. create prs
+
+![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)
+
+checkver xxx 需要在 powershell 内执行,不可以是 pwsh 会报错
