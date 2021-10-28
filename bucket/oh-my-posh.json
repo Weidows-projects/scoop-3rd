@@ -8,16 +8,8 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v5.16.2/posh-windows-amd64.exe#/oh-my-posh.exe",
-            "hash": "45000aeaacdd2f00ada7759221e0c21712ffb08a2ef6c9dfeb78272437fa5abd"
-        },
-        "32bit": {
-            "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v5.16.2/posh-windows-386.exe#/oh-my-posh.exe",
-            "hash": "ca1bc9f684c4246756cd37fe4b930e1b0fc6fedf47834545aac7b11562df50ab"
-        },
-        "arm64": {
-            "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v5.16.2/posh-windows-arm64.exe#/oh-my-posh.exe",
-            "hash": "abd233984b4b3b139f7e0572aa048d1802b34debad77e563578d22db22f8ad12"
+            "url": "https://github.com/JanDeDobbeleer/oh-my-posh3/releases/download/v5.16.2/posh-windows-wsl-amd64.7z",
+            "hash": "c4825f6099b59240614db2b912f0bb3eb9facc0bf0da86c796f3c7163921a612"
         }
     },
     "bin": "oh-my-posh.exe",
@@ -27,13 +19,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v$version/posh-windows-amd64.exe#/oh-my-posh.exe"
-            },
-            "32bit": {
-                "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v$version/posh-windows-386.exe#/oh-my-posh.exe"
-            },
-            "arm64": {
-                "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v$version/posh-windows-arm64.exe#/oh-my-posh.exe"
+                "url": "https://github.com/JanDeDobbeleer/oh-my-posh3/releases/download/v$version/posh-windows-wsl-amd64.7z"
             }
         },
         "hash": {
