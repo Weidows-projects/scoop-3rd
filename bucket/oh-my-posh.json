@@ -8,8 +8,8 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/JanDeDobbeleer/oh-my-posh3/releases/download/v5.18.0/posh-windows-wsl-amd64.7z",
-            "hash": "fb21e076abfef0dab7cd10e118eac5b7b5355db47fef6c8102f95bc0f32025f6"
+            "url": "https://github.com/JanDeDobbeleer/oh-my-posh3/releases/download/v5.16.2/posh-windows-wsl-amd64.7z",
+            "hash": "bb2d0da4e9dd59166fcee0e630974e025e6dc495704f21f9084a856396e1bc61"
         }
     },
     "bin": "oh-my-posh.exe",
