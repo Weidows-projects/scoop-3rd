@@ -1,10 +1,10 @@
 {
     "homepage": "https://github.com/pbatard/Fido",
     "description": "A PowerShell script to download Windows ISOs or the UEFI Shell",
-    "version": "1.26",
+    "version": "1.27",
     "license": "GPL-3.0",
-    "url": "https://github.com/pbatard/Fido/releases/download/v1.26/Fido.ps1.lzma",
-    "hash": "b40b7d3041aaed4b16cc2186dfaedb4b6a2ad23733169feba838730d8792860d",
+    "url": "https://github.com/pbatard/Fido/releases/download/v1.27/Fido.ps1.lzma",
+    "hash": "bf21bf623fc24a6b36b21080035539662f6eccf4afd0a7fa6a3af2726e61c98f",
     "bin": "Fido.ps1",
     "checkver": {
         "github": "https://github.com/pbatard/Fido"
