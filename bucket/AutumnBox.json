@@ -1,0 +1,13 @@
+{
+    "version": "2019.4",
+    "description": "图形化ADB工具箱",
+    "homepage": "https://github.com/zsh2401/AutumnBox",
+    "license": "LGPL-3.0",
+    "url": "https://atmb.sm9.top/AutumnBox/%E4%B8%BB%E7%A8%8B%E5%BA%8F/AutumnBox-2019.4.13.zip",
+    "hash": "B8A379AB7219CF6DCFB442D66A7CC042B81D59E466F1159AFDC65E4FD6C52FC6",
+    "pre_install": [
+        "move \"$dir\\AutumnBox\\*\" $dir",
+        "Remove-Item \"$dir\\AutumnBox\""
+    ],
+    "shortcuts": [["AutumnBox-秋之盒.exe", "秋之盒"]]
+}
