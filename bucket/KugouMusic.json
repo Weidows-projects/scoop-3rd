@@ -1,0 +1,17 @@
+{
+    "version": "10.0.24",
+    "description": "Hello, KuGou!",
+    "homepage": "https://www.kugou.com/",
+    "url": "http://download.kugou.com/download/kugou_pc#/dl.7z",
+    "installer": {
+        "script": [
+            "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\KuGou.7z\" \"$dir\"",
+            "Remove-Item -Recurse -Force \"$dir\\`$PLUGINSDIR\""
+        ]
+    },
+    "shortcuts": [["KuGou.exe", "酷狗音乐"]],
+    "checkver": {
+        "url": "https://download.kugou.com/",
+        "regex": "V (\\d+\\.\\d+\\.\\d+)"
+    }
+}
