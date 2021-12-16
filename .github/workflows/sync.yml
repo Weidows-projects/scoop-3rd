@@ -1,0 +1,20 @@
+on:
+  watch:
+    types: [started]
+name: Excavator
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror org
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/Weidows-projects
+          dst: gitee/weidows-projects
+          dst_key: ${{ secrets.GITEE_RSA }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          account_type: org
+          force_update: true
+          # white_list:
+          # black_list:
+          static_list: 'scoop-3rd'
