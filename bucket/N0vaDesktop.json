@@ -6,12 +6,20 @@
     "architecture": {
         "64bit": {
             "url": "https://n0va-static.mihoyo.com/app/dp/5f17af398d20e6ddc9767e5a/20211210162248/N0vaDesktop_2.1.0.40_bd.exe#dl.7z",
-            "hash": "5aaf63769789708de9ee2479ebfe521fb0c2a83607df8d64b61564587a89047a"
+            "hash": "5aaf63769789708de9ee2479ebfe521fb0c2a83607df8d64b61564587a89047a",
+            "pre_install": [
+                "foreach ($f in @('config.ini')) {",
+                "    if (-not (Test-Path \"$persist_dir\\$f\")) {",
+                "        Write-Host 'File' $f 'does not exists. Creating' -f Yellow",
+                "        Set-Content \"$dir\\$f\" $CONT -Encoding Ascii",
+                "    }",
+                "}"
+            ]
         }
     },
     "shortcuts": [["N0vaDesktop.exe", "人工桌面"]],
     "bin": "N0vaDesktop.exe",
-    "persist": ["N0vaDesktopCache/n0va"],
+    "persist": ["config.ini", "N0vaDesktopCache"],
     "checkver": {
         "url": "https://api-takumi-static.mihoyo.com/cls/backyard/api/getLatestPackage?app_id=5f17af398d20e6ddc9767e5a&ad_identifier=bdsem7",
         "regex": "N0vaDesktop_(\\d(\\.\\d+)+)"
