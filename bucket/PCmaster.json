@@ -1,9 +1,8 @@
 {
     "version": "6.25",
+    "description": "软媒电脑管家",
     "homepage": "https://mofang.ruanmei.com",
-    "license": {
-        "identifier": "Unknown"
-    },
+    "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": "https://d.ruanmei.com/pcmaster/pcmastersetup_6.25.exe#/dl.7z",

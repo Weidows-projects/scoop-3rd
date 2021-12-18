@@ -2,9 +2,7 @@
     "version": "5.11",
     "description": "体验极致模拟 Mac OS 系统桌面",
     "homepage": "https://www.mydockfinder.com",
-    "license": {
-        "identifier": "Unknown"
-    },
+    "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": "https://github.com/mydockfinder/mydockfinder-for-Win10-Win11/releases/download/5.11/MyDockFinder.zip",

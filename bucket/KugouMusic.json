@@ -2,6 +2,7 @@
     "version": "10.0.24",
     "description": "Hello, KuGou!",
     "homepage": "https://www.kugou.com/",
+    "license": "Unknown",
     "url": "http://download.kugou.com/download/kugou_pc#/dl.7z",
     "installer": {
         "script": [

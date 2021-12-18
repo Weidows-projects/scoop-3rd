@@ -2,9 +2,7 @@
     "version": "5.0",
     "description": "蘑菇下载器",
     "homepage": "https://pcstory.ml",
-    "license": {
-        "identifier": "Unknown"
-    },
+    "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": "https://pcstory.ml/download/pcstory5.0.zip",
