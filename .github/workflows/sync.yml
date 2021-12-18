@@ -1,6 +1,6 @@
 on:
   watch:
-    types: [started]
+    types: [push,started]
 name: Excavator
 jobs:
   mirror:
