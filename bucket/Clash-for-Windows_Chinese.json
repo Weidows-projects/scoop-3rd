@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V0.18.8_CN/Clash.for.Windows-0.18.8-win.7z",
+            "url": "https://download.fastgit.org/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V0.18.8_CN/Clash.for.Windows-0.18.8-win.7z",
             "hash": "C56A3072E8D36E62228A30AFB0671B850813A1AE9100E297F3E9E0C96A772168"
         }
     },
@@ -47,7 +47,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V$version_CN/Clash.for.Windows-$version-win.7z",
+                "url": "https://download.fastgit.org/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V$version_CN/Clash.for.Windows-$version-win.7z",
                 "hash": {
                     "mode": "download"
                 }

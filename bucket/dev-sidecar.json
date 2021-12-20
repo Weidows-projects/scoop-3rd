@@ -5,7 +5,7 @@
     "license": "MPL-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/docmirror/dev-sidecar/releases/download/v1.7.1/DevSidecar-1.7.1.exe#/dl.7z",
+            "url": "https://download.fastgit.org/docmirror/dev-sidecar/releases/download/v1.7.1/DevSidecar-1.7.1.exe#/dl.7z",
             "hash": "4364A79BA93AB85FCDCDA6B0FAB25E4FF3AA677A53F6E881D81DA492B736D722",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
@@ -20,7 +20,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/docmirror/dev-sidecar/releases/download/v$version/DevSidecar-$version.exe#/dl.7z"
+                "url": "https://download.fastgit.org/docmirror/dev-sidecar/releases/download/v$version/DevSidecar-$version.exe#/dl.7z"
             }
         }
     }
