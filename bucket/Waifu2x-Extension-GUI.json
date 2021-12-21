@@ -9,7 +9,7 @@
             "hash": "0ca176ed3ec225708272fb7e0d3336981bb36e45f15c5f6c8706ee7b8909374e",
             "pre_install": [
                 "move $dir\\waifu2x-extension-gui\\* $dir",
-                "rm $dir\\waifu2x-extension-gui"
+                "Remove-Item $dir\\waifu2x-extension-gui"
             ]
         }
     },
