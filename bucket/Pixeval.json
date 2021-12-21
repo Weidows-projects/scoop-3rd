@@ -5,7 +5,7 @@
     "license": "GPL-3.0",
     "architecture": {
         "64bit": {
-            "url": "https://download.fastgit.org/Pixeval/Pixeval/releases/download/3.1.3/Pixeval.ziphttps://download.fastgit.org/Pixeval/Pixeval/releases/download/3.1.3/Pixeval.zip",
+            "url": "https://download.fastgit.org/Pixeval/Pixeval/releases/download/3.1.3/Pixeval.zip",
             "hash": "29d39ea23e1a86d30d4f934c45dafa9538f875ef6359ff2d5b68e0ad95650ea3",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\Pixeval\" \"$dir\"",
@@ -21,7 +21,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download.fastgit.org/Pixeval/Pixeval/releases/download/$version/Pixeval.ziphttps://download.fastgit.org/Pixeval/Pixeval/releases/download/$version/Pixeval.zip",
+                "url": "https://download.fastgit.org/Pixeval/Pixeval/releases/download/$version/Pixeval.zip",
                 "hash": {
                     "mode": "download"
                 }
