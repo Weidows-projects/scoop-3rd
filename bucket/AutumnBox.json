@@ -1,13 +1,19 @@
 {
-    "version": "2019.4",
+    "version": "2021.2.22.1-canary",
     "description": "图形化ADB工具箱",
     "homepage": "https://github.com/zsh2401/AutumnBox",
     "license": "LGPL-3.0",
-    "url": "https://atmb.sm9.top/AutumnBox/%E4%B8%BB%E7%A8%8B%E5%BA%8F/AutumnBox-2019.4.13.zip",
-    "hash": "B8A379AB7219CF6DCFB442D66A7CC042B81D59E466F1159AFDC65E4FD6C52FC6",
-    "pre_install": [
-        "move \"$dir\\AutumnBox\\*\" $dir",
-        "Remove-Item \"$dir\\AutumnBox\""
-    ],
-    "shortcuts": [["AutumnBox-秋之盒.exe", "秋之盒"]]
+    "url": "https://ghproxy.fsou.cc/https://github.com/zsh2401/AutumnBox/releases/download/v2021.2.22.1-canary/AutumnBox-v2021.2.22.1-canary.zip",
+    "hash": "4d201556e1d668d7dfdea52eedd3370f5b8d2cd6af17d965030a4c031161b09c",
+    "extract_dir": "AutumnBox-Canary",
+    "shortcuts": [["AutumnBox.GUI.exe", "秋之盒"]],
+    "checkver": {
+        "github": "https://github.com/zsh2401/AutumnBox"
+    },
+    "autoupdate": {
+        "url": "https://ghproxy.fsou.cc/https://github.com/zsh2401/AutumnBox/releases/download/v$version-canary/AutumnBox-v$version-canary.zip",
+        "hash": {
+            "mode": "download"
+        }
+    }
 }
