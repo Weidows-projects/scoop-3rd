@@ -1,5 +1,5 @@
 {
-    "version": "10.0.24",
+    "version": "9.2.29",
     "description": "Hello, KuGou!",
     "homepage": "https://www.kugou.com/",
     "license": "Unknown",
@@ -10,7 +10,6 @@
             "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\KuGou.7z\" \"$dir\"",
             "Remove-Item -Recurse -Force \"$dir\\`$PLUGINSDIR\"",
             "New-Item -ItemType Junction -Path \"$dir\\$([System.Diagnostics.FileVersionInfo]::GetVersionInfo(\"$dir\\KuGou.exe\").FileVersion)\" -Target \"$dir\"",
-
             "$runtimeCache = \"$env:APPDATA\\KuGou8\"",
             "$runtimeCachePersist = \"$persist_dir\\data\"",
             "if (Test-Path $runtimeCachePersist) {",
@@ -35,7 +34,12 @@
             "}"
         ]
     },
-    "shortcuts": [["KuGou.exe", "酷狗音乐"]],
+    "shortcuts": [
+        [
+            "KuGou.exe",
+            "酷狗音乐"
+        ]
+    ],
     "bin": "KuGou.exe",
     "persist": "data",
     "checkver": {
