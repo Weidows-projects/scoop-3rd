@@ -8,7 +8,7 @@
             "url": "https://d.ruanmei.com/pcmaster/pcmastersetup_6.25.exe#/dl.7z",
             "hash": "a72fb3706d55db62835a3f7b1516b81bbd4a719c5a82fad403bcc2962f62a6bf",
             "pre_install": [
-                "move \"$dir\\`$APPDATA\\Microsoft\\Internet Explorer\\Quick Launch\\*\" $dir",
+                "Move-Item \"$dir\\`$APPDATA\\Microsoft\\Internet Explorer\\Quick Launch\\*\" $dir -Force",
                 "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
             ],
             "installer": {
