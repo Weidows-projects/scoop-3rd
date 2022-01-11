@@ -5,11 +5,10 @@
     "license": "BSD-3-Clause",
     "notes": [
         "Write-Host 'Installing Anaconda 3. This can take up to 30 minutes on an HDD.' -ForegroundColor Magenta",
+        "",
         "Conda envs and pkgs are not persisted by Scoop, we advice to setup `envs_dirs` to use '~/.conda/envs'.",
         "  https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs",
-        "",
-        "To enable conda tab-completion autoload, run code below to add the shell hook:",
-        "Add-Content -Path $Profile -Value \"`n(& conda \"shell.powershell\" \"hook\") | Out-String | Invoke-Expression"
+        ""
     ],
     "architecture": {
         "64bit": {
@@ -29,24 +28,45 @@
             "/AddToPath=0",
             "/NoRegistry=1",
             "/D=$dir"
+        ],
+        "script": [
+            "if (!(Test-Path \"$persist_dir\\data\")) {",
+            "    New-Item \"$persist_dir\\data\" -Type Directory -Force | Out-Null",
+            "    if (Test-Path \"$env:USERPROFILE\\.conda\") {",
+            "        Copy-Item -Path \"$env:USERPROFILE\\.conda\\*\" -Destination \"$persist_dir\\data\\.conda\" -Recurse -Container",
+            "    }",
+            "    if (Test-Path \"$env:USERPROFILE\\.condarc\") {",
+            "        Copy-Item -Path \"$env:USERPROFILE\\.condarc\" -Destination \"$persist_dir\\data\"",
+            "    }",
+            "}",
+            "$runtimeCache = \"$env:APPDATA\\.anaconda\"",
+            "$runtimeCachePersist = \"$persist_dir\\.anaconda\"",
+            "if (Test-Path $runtimeCachePersist) {",
+            "    Remove-Item $runtimeCache -Force -Recurse -ErrorAction SilentlyContinue",
+            "    New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
+            "} else {",
+            "    if (Test-Path $runtimeCache) {",
+            "        Move-Item $runtimeCache $runtimeCachePersist -Force",
+            "        New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
+            "    }",
+            "}"
         ]
     },
     "uninstaller": {
-        "file": "Uninstall-Anaconda3.exe",
-        "args": "/S"
-    },
-    "bin": [
-        "python.exe",
-        "pythonw.exe",
-        [
-            "python.exe",
-            "python3"
+        "script": [
+            "Uninstall-Anaconda3.exe /S",
+            "$runtimeCache = \"$env:APPDATA\\.anaconda\"",
+            "$runtimeCachePersist = \"$persist_dir\\.anaconda\"",
+            "if (!(Test-Path $runtimeCachePersist)) {",
+            "    Move-Item $runtimeCache $runtimeCachePersist -Force",
+            "} else {",
+            "    Remove-Item $runtimeCache -Force -Recurse -ErrorAction SilentlyContinue",
+            "}"
         ]
-    ],
-    "env_add_path": [
-        "Scripts",
-        "Library/bin"
-    ],
+    },
+    "persist": ["data", "pkgs"],
+    "bin": ["python.exe", "pythonw.exe", ["python.exe", "python3"]],
+    "env_add_path": ["Scripts", "Library/bin"],
     "checkver": {
         "url": "https://docs.anaconda.com/anaconda/install/hashes/win-3-64/",
         "regex": "Anaconda3-([\\d.]+)-Windows"
