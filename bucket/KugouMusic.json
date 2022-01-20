@@ -4,7 +4,7 @@
     "homepage": "https://www.kugou.com/",
     "license": "Unknown",
     "url": "http://download.kugou.com/download/kugou_pc#/dl.7z",
-    "hash": "e56187008d8692971f7c1102f834da18e0319c98eb12976309b9917722eb2f45",
+    "hash": "557b4fcf813ca0362b84adcffc0879f82ea439861156ef92112d0a0b1db8fd54",
     "installer": {
         "script": [
             "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\KuGou.7z\" \"$dir\"",
