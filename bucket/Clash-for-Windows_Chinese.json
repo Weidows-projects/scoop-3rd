@@ -1,12 +1,12 @@
 {
     "homepage": "https://github.com/ender-zhao/Clash-for-Windows_Chinese",
     "description": "clash for windows汉化版. 提供clash for windows的汉化版, 汉化补丁及汉化版安装程序",
-    "version": "0.18.8",
+    "version": "0.19.5",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V0.18.8_CN/Clash.for.Windows-0.18.8-win.7z",
-            "hash": "C56A3072E8D36E62228A30AFB0671B850813A1AE9100E297F3E9E0C96A772168"
+            "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.19.5_CN/Clash.for.Windows-0.19.5-win.7z",
+            "hash": "4f72369797a005559427ff55879aee05ca5a960ddc5b17447994019a12926340"
         }
     },
     "installer": {
@@ -41,13 +41,21 @@
             "}"
         ]
     },
-    "shortcuts": [["Clash for Windows.exe", "Clash for Windows"]],
+    "shortcuts": [
+        [
+            "Clash for Windows.exe",
+            "Clash for Windows"
+        ]
+    ],
     "persist": "data",
-    "checkver": "github",
+    "checkver": {
+        "url": "https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases",
+        "regex": "Clash for Windows V(\\d(\\.\\d+)+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/Clash-V$version_CN/Clash.for.Windows-$version-win.7z",
+                "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V$version_CN/Clash.for.Windows-$version-win.7z",
                 "hash": {
                     "mode": "download"
                 }
