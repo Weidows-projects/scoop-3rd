@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.fsou.cc/https://github.com/AlexanderPro/SmartSystemMenu/releases/download/v2.17.0/SmartSystemMenu_v2.17.0.zip",
+            "url": "https://ghproxy.com/https://github.com/AlexanderPro/SmartSystemMenu/releases/download/v2.17.0/SmartSystemMenu_v2.17.0.zip",
             "hash": "6fdaf969170e9274bd7366fd4860a6714f8ffd20c4a7731402c171f0a3beb71f"
         }
     },
@@ -22,7 +22,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://ghproxy.fsou.cc/https://github.com/AlexanderPro/SmartSystemMenu/releases/download/v$version/SmartSystemMenu_v$version.zip",
+                "url": "https://ghproxy.com/https://github.com/AlexanderPro/SmartSystemMenu/releases/download/v$version/SmartSystemMenu_v$version.zip",
                 "hash": {
                     "url": "https://github.com/pavlobu/deskreen/releases/download/v$version/latest.yml",
                     "mode": "download"

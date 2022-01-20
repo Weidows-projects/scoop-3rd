@@ -5,7 +5,7 @@
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.fsou.cc/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v3.86.74/Waifu2x-Extension-GUI-v3.86.74-Win64.7z",
+            "url": "https://ghproxy.com/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v3.86.74/Waifu2x-Extension-GUI-v3.86.74-Win64.7z",
             "hash": "8c63317b9ef27f562d059acfa903da91b3939401964d56785eb2b9782749857f",
             "pre_install": [
                 "Move-Item $dir\\waifu2x-extension-gui\\* $dir -Force",
@@ -26,7 +26,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://ghproxy.fsou.cc/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v$version/Waifu2x-Extension-GUI-v$version-Win64.7z",
+                "url": "https://ghproxy.com/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v$version/Waifu2x-Extension-GUI-v$version-Win64.7z",
                 "hash": {
                     "url": "https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v$version",
                     "mode": "extract",

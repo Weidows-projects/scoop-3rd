@@ -5,7 +5,7 @@
     "license": "MPL-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.fsou.cc/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/QuickCut_v1.6.10_Win64_pyinstaller.7z",
+            "url": "https://ghproxy.com/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/QuickCut_v1.6.10_Win64_pyinstaller.7z",
             "hash": "3e6de4b65f10a65d2b8ed567b68838d97f84bbd7e9c3dc4cd40738c11fb40d45",
             "pre_install": [
                 "Move-Item \"$dir\\QuickCut\\*\" $dir -Force",

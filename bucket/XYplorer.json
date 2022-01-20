@@ -8,7 +8,7 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.fsou.cc/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/xyplorer.7z",
+            "url": "https://ghproxy.com/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/xyplorer.7z",
             "hash": "14774cf9ec2356f10291c1849ca6440e34ba5500d60d08ff856b8c86402564e2"
         }
     },
@@ -20,6 +20,6 @@
         "regex": "Release ?([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://ghproxy.fsou.cc/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/xyplorer.7z"
+        "url": "https://ghproxy.com/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/xyplorer.7z"
     }
 }
