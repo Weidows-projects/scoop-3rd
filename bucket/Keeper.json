@@ -1,13 +1,13 @@
 {
-    "version": "1.0.0",
+    "version": "1.1.2",
     "description": "✅ 刷绿格子GitHub+Gitee | 唤醒服务器 | 爬取必应图片 | 镜像GitHub->Gitee | 本地管理体系...etc",
     "homepage": "https://github.com/Weidows-projects/Keeper",
     "license": "MPL-2.0",
     "notes": "",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.com/https://github.com/Weidows-projects/Keeper/archive/refs/tags/1.0.0.zip",
-            "extract_dir": "Keeper-1.0.0"
+            "url": "https://ghproxy.com/https://github.com/Weidows-projects/Keeper/archive/refs/tags/1.1.2.zip",
+            "extract_dir": "Keeper-1.1.2"
         }
     },
     "bin": "utils.bat",
