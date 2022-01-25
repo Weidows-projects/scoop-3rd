@@ -10,7 +10,7 @@
             "extract_dir": "Keeper-1.2.0"
         }
     },
-    "persist": [".git", "local", "Repos"],
+    "persist": [".git", "local", "Repos", "utils.bat"],
     "checkver": {
         "github": "https://github.com/Weidows-projects/Keeper"
     },
