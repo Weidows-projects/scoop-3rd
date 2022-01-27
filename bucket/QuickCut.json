@@ -3,6 +3,7 @@
     "description": "Your most handy video processing software",
     "homepage": "https://github.com/HaujetZhao/QuickCut",
     "license": "MPL-2.0",
+    "notes": "手动下载地址: https://wwe.lanzoux.com/b015n2n5a#f4t3",
     "architecture": {
         "64bit": {
             "url": "https://ghproxy.com/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/QuickCut_v1.6.10_Win64_pyinstaller.7z",
@@ -18,5 +19,7 @@
     "checkver": {
         "github": "https://github.com/HaujetZhao/QuickCut"
     },
-    "autoupdate": {}
+    "autoupdate": {
+        "url": "https://ghproxy.com/https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/QuickCut_v$version_Win64_pyinstaller.7z"
+    }
 }

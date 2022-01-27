@@ -3,32 +3,22 @@
  * @Author: Weidows
  * @Date: 2021-10-08 18:09:46
  * @LastEditors: Weidows
- * @LastEditTime: 2021-11-27 00:08:14
+ * @LastEditTime: 2022-01-27 22:06:56
  * @FilePath: \scoop-3rd\README.md
  * @Description:
  * @!: *********************************************************************
 -->
 
-> this is an expansion repo for [kkzzhizhou/scoop-apps](https://github.com/kkzzhizhou/scoop-apps)
+> this is an expansion repo for [kkzzhizhou/scoop-apps](https://github.com/kkzzhizhou/scoop-apps) \
+> 此库为上述库的扩展库 \
+> 主要更新维护日常/开发使用的软件
 
 # Usage
 
 ```
 scoop bucket add 3rd https://gitee.com/weidows-projects/scoop-3rd
-
-scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
 ```
 
-![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)
-
-# Contribute
-
-1. fork this repo
-
-2. Add jsons to ./bucket
-
-3. use powershell to check likes: `powershell .\bin\checkver.ps1 xxx -f` (需要在 powershell 内执行,pwsh 会报错)
-
-4. create prs
-
-![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)
+```
+scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
+```

@@ -44,7 +44,7 @@
     "persist": "data",
     "checkver": {
         "url": "https://download.kugou.com/",
-        "regex": "V (\\d+\\.\\d+\\.\\d+)"
+        "regex": "V (\\d+(\\.\\d+)+)"
     },
     "autoupdate": {
         "url": "http://download.kugou.com/download/kugou_pc#/dl.7z",
