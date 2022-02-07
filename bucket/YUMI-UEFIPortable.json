@@ -5,7 +5,7 @@
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://download3.portableapps.com/portableapps/YUMI-UEFIPortable/YUMI-UEFIPortable_0.0.4.4_English.paf.exe#dl.7z",
+            "url": "https://download3.portableapps.com/portableapps/YUMI-UEFIPortable/YUMI-UEFIPortable_0.0.4.4_English.paf.exe#/dl.7z",
             "hash": "c9d6e2daf1cca67d1705bc743f1610d61f5742783abab8826c28350f8b3f8fb1",
             "pre_install": "Remove-Item \"$dir\\`$*\" -Recurse"
         }
@@ -25,7 +25,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download3.portableapps.com/portableapps/YUMI-UEFIPortable/YUMI-UEFIPortable_$version_English.paf.exe#dl.7z",
+                "url": "https://download3.portableapps.com/portableapps/YUMI-UEFIPortable/YUMI-UEFIPortable_$version_English.paf.exe#/dl.7z",
                 "hash": {
                     "url": "https://portableapps.com/apps/utilities/yumi-uefi-portable",
                     "mode": "extract",
