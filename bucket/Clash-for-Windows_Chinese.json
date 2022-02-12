@@ -1,12 +1,12 @@
 {
     "homepage": "https://github.com/ender-zhao/Clash-for-Windows_Chinese",
     "description": "clash for windows汉化版. 提供clash for windows的汉化版, 汉化补丁及汉化版安装程序",
-    "version": "0.19.7",
+    "version": "0.19.8",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.19.7_CN/Clash.for.Windows-0.19.7-win.7z",
-            "hash": "9b36a73a44bd8328a62dd02841fc708e2be4b5d7c660f1e514ac54ce87d2b62e"
+            "url": "https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.19.8_CN/Clash.for.Windows-0.19.8-win.7z",
+            "hash": "1f5525992bd1206dc777ec71d15460e22e8c173783422859e2d3fd68278cc0d3"
         }
     },
     "installer": {
