@@ -7,6 +7,27 @@
     "bin": "ClashDotNet.exe",
     "extract_dir": "Clash .NET 1.2.8",
     "shortcuts": [["ClashDotNet.exe", "Clash .Net"]],
+    "pre_install": [
+        "foreach ($folder in @('.config\\cdn')) {",
+        "  if (Test-Path \"$env:USERPROFILE\\$folder\") {",
+        "    $runtimeCache = \"$env:USERPROFILE\\$folder\"",
+        "    $runtimeCachePersist = \"$persist_dir\\USERPROFILE\\$folder\"",
+        "  } else {",
+        "    if (Test-Path \"$env:APPDATA\\$folder\") {",
+        "      $runtimeCache = \"$env:APPDATA\\$folder\"",
+        "      $runtimeCachePersist = \"$persist_dir\\APPDATA\\$folder\"",
+        "    } else {continue}",
+        "  }",
+        "  if (Test-Path $runtimeCachePersist) {",
+        "    Remove-Item $runtimeCache -Force -Recurse -ErrorAction SilentlyContinue",
+        "    New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
+        "  } else {",
+        "    mkdir $runtimeCache",
+        "    Move-Item $runtimeCache $runtimeCachePersist -Force",
+        "    New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
+        "  }",
+        "}"
+    ],
     "checkver": {
         "github": "https://github.com/V2RaySSR/Clash.Net"
     },
