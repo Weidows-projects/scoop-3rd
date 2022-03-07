@@ -14,27 +14,29 @@
         "64bit": {
             "url": [
                 "https://pd.zwc365.com/https://update.code.visualstudio.com/1.65.0/win32-x64-archive/stable#/dl.7z",
-                "https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/vscode.7z"
+                "https://pd.zwc365.com/https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/register.zip"
             ],
             "hash": [
                 "cd372a30e160e250541230c22791f9a72e653a7cc8d92e4047688dfe3d5b7c73",
-                "8A6376A3836FE616E83144CD90DFD7418D515BBD5273A052EF4AC7C4973BF1F9"
+                "facd9d0fecdd181e206e958bfcd1a3e2b29999a13575af8dfa17553bd672a030"
             ]
         },
         "32bit": {
             "url": [
                 "https://pd.zwc365.com/https://update.code.visualstudio.com/1.65.0/win32-archive/stable#/dl.7z",
-                "https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/vscode.7z"
+                "https://pd.zwc365.com/https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/register.zip"
             ],
             "hash": [
                 "307229533537ddadb516fc93415b584f459f426fee1f77022b4216551c909639",
-                "8A6376A3836FE616E83144CD90DFD7418D515BBD5273A052EF4AC7C4973BF1F9"
+                "facd9d0fecdd181e206e958bfcd1a3e2b29999a13575af8dfa17553bd672a030"
             ]
         }
     },
     "bin": "code.exe",
     "shortcuts": [["code.exe", "Visual Studio Code"]],
     "post_install": [
+        "Expand-7zipArchive \"$dir\\register.zip\" \"$dir\"",
+        "Remove-Item -Recurse -Force \"$dir\\register.zip\"",
         "$dirpath = \"$dir\".Replace('\\', '\\\\')",
         "$exepath = \"$dir\\Code.exe\".Replace('\\', '\\\\')",
         "'install-associations', 'uninstall-associations', 'install-context', 'uninstall-context' | ForEach-Object {",
