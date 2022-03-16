@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://www.apipost.cn/dl.php?client=Win&arch=x64#/dl.7z",
-            "hash": "83f93fc4a27756ab8e902afdbcf83f17cd2f179337c7c833b9714d9b94667162"
+            "hash": "2e999c7d8ef8884d5f14c57fae16c2537f6e2f9b3f11f6be49a66aec6a0a7489"
         }
     },
     "pre_install": [
