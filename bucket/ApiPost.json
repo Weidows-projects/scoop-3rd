@@ -1,12 +1,12 @@
 {
-    "version": "6.0.1",
+    "version": "6.0.2",
     "description": "ApiPost是一个支持模拟POST、GET、PUT等常见HTTP请求，支持团队协作，并可直接生成并导出接口文档的API调试、管理工具",
     "homepage": "https://www.apipost.cn/",
     "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": "https://www.apipost.cn/dl.php?client=Win&arch=x64#/dl.7z",
-            "hash": "96484af1770bcdf81aa99acc42de732350ed91e42a7a1b4ba473bd4c7dfd9d4b"
+            "hash": "b5e8fed1174442b41441c2b451af3f2a3541911ef5d29f8459b8090eed91a920"
         }
     },
     "pre_install": [
