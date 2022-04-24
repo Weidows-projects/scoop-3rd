@@ -6,18 +6,18 @@
     "architecture": {
         "64bit": {
             "url": "https://www.apipost.cn/dl.php?client=Win&arch=x64#/dl.7z",
-            "hash": "2cf1639938807480dacb91dfe7b9a9e841418c845cda779c264b52d42c16cda9"
+            "hash": "172ca7a18da700bd92f00ccbd67d9e5e3682b7ee5c39df45be76dcb896ad29c3"
         }
     },
     "pre_install": [
         "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
         "Remove-Item -Recurse -Force \"$dir\\`$PLUGINSDIR\""
     ],
-    "bin": "ApiPost.exe",
+    "bin": "ApiPost6.exe",
     "shortcuts": [
         [
-            "ApiPost.exe",
-            "ApiPost"
+            "ApiPost6.exe",
+            "ApiPost6"
         ]
     ],
     "checkver": {
