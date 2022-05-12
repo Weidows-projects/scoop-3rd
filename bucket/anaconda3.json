@@ -1,5 +1,5 @@
 {
-    "version": "2021.11",
+    "version": "2022.05",
     "description": "The most popular Python distribution for data science.",
     "homepage": "https://conda.io/miniconda.html",
     "license": "BSD-3-Clause",
@@ -12,12 +12,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe",
-            "hash": "1b3d593d1deb22b835be5c68897075e0fc9dea240ab4191c55674aba259a78ff"
+            "url": "https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86_64.exe",
+            "hash": "2766eb102f9d65da36d262b651777358de39fbe5f1a74f9854a2e5e29caeeeec"
         },
         "32bit": {
-            "url": "https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86.exe",
-            "hash": "dc0746dded06cc480328c20b73369803ce98df1971bda669d93859e02c1c0664"
+            "url": "https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86.exe",
+            "hash": "cd8c688349bcd1f429e3b383620fb0d19f52be0f765b2eae78d63b41aefb2e73"
         }
     },
     "installer": {
@@ -70,9 +70,19 @@
             "}"
         ]
     },
-    "persist": ["pkgs"],
-    "bin": ["python.exe", "pythonw.exe", ["python.exe", "python3"]],
-    "env_add_path": ["Scripts", "Library/bin"],
+    "persist": "pkgs",
+    "bin": [
+        "python.exe",
+        "pythonw.exe",
+        [
+            "python.exe",
+            "python3"
+        ]
+    ],
+    "env_add_path": [
+        "Scripts",
+        "Library/bin"
+    ],
     "checkver": {
         "url": "https://docs.anaconda.com/anaconda/install/hashes/win-3-64/",
         "regex": "Anaconda3-([\\d.]+)-Windows"
