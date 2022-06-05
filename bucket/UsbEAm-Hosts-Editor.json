@@ -1,5 +1,5 @@
 {
-    "version": "3.62",
+    "version": "3.63",
     "description": "多平台hosts修改",
     "homepage": "https://www.dogfight360.com/blog/475/",
     "license": "Unknown",
@@ -9,7 +9,12 @@
             "hash": "8b640b77959df02c47aa8d4859d25cc0d723e8e63e136ea05968695543518f6a"
         }
     },
-    "shortcuts": [["UsbEAm Hosts Editor v3.62.exe", "UsbEAm Hosts Editor"]],
+    "shortcuts": [
+        [
+            "UsbEAm Hosts Editor v3.62.exe",
+            "UsbEAm Hosts Editor"
+        ]
+    ],
     "checkver": {
         "url": "https://www.dogfight360.com/blog/475/",
         "regex": "V(\\d+\\.\\d+)"
