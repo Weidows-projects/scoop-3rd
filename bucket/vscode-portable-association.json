@@ -1,5 +1,5 @@
 {
-    "version": "1.67.2",
+    "version": "1.68.0",
     "description": "Lightweight but powerful source code editor",
     "homepage": "https://code.visualstudio.com/",
     "license": {
@@ -13,21 +13,21 @@
     "architecture": {
         "64bit": {
             "url": [
-                "https://update.code.visualstudio.com/1.67.2/win32-x64-archive/stable#/dl.7z",
+                "https://update.code.visualstudio.com/1.68.0/win32-x64-archive/stable#/dl.7z",
                 "https://pd.zwc365.com/https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/register.zip"
             ],
             "hash": [
-                "24b6e309c531c2be4ae07f703ab23e307b09e9f864b2a172024c5d5ef19edfc6",
+                "f888de82d471575377849acccf781a676e841c3892d3d2b2abc0ff8de1e499fb",
                 "A6B668AD01150935B9B4FC44F03AE540CC0750551B809D83B9E6535AF237E844"
             ]
         },
         "32bit": {
             "url": [
-                "https://update.code.visualstudio.com/1.67.2/win32-archive/stable#/dl.7z",
+                "https://update.code.visualstudio.com/1.68.0/win32-archive/stable#/dl.7z",
                 "https://pd.zwc365.com/https://raw.githubusercontent.com/Weidows-projects/scoop-3rd/main/scripts/register.zip"
             ],
             "hash": [
-                "612a3dcc0d34f3b7952025c69f94163728c064f5eac27b3896262ab3a782b14e",
+                "5c797d96c08d8ade0003080fc6cfe14ad29643153d121126fe6bbab9701d4f6a",
                 "A6B668AD01150935B9B4FC44F03AE540CC0750551B809D83B9E6535AF237E844"
             ]
         }
