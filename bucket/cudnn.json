@@ -1,13 +1,17 @@
 {
-    "version": "8.3.1.22",
-    "description": "NVIDIA CUDA® 深度神经网络库 (cuDNN) 是经 GPU 加速的深度神经网络基元库。cuDNN 可大幅优化标准例程（例如用于前向传播和反向传播的卷积层、池化层、归一化层和激活层）的实施。",
-    "homepage": "https://developer.nvidia.com/cudnn",
+    "version": "8.4.0",
+    "description": "for CUDA 10.2",
+    "notes": [
+        "由于API需要验证,所以会下载失败;",
+        "需要手动下载安装包并改名移动到 scoop/cache"
+    ],
+    "homepage": "https://developer.nvidia.com/rdp/cudnn-archive",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://bafybeib54tiucjlmlossqyxrsuuumx4njqw77e7ser5pihwzn2jvahhw3q.ipfs.dweb.link/cudnn-windows-x86_64-8.3.1.22_cuda11.5-archive.zip",
-            "hash": "F0D5CB8D899E5405C00C3EA3925D9143A832EA6239BC70309BB2DED2BFB8D824",
-            "extract_dir": "cudnn-windows-x86_64-8.3.1.22_cuda11.5-archive"
+            "url": "https://cudnn#/dl.zip",
+            "hash": "132783E56340D7553AFE74FB3745B7B7D47E34B33A0417EF64B3A1F1EF08C71B",
+            "extract_dir": "cudnn-windows-x86_64-8.4.0.27_cuda10.2-archive"
         }
     },
     "env_add_path": ["bin"]
