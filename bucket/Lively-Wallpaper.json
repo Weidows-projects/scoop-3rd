@@ -1,10 +1,10 @@
 {
-    "version": "2.0.2.1",
+    "version": "2.0.2.2",
     "description": "Free and open-source software that allows users to set animated and interactive desktop wallpapers.",
     "homepage": "https://rocksdanister.github.io/lively/",
     "license": "GPL-3.0-only",
-    "url": "https://ghproxy.com/https://github.com/rocksdanister/lively/releases/download/v2.0.2.1/lively_setup_x86_full_v2021.exe",
-    "hash": "66fea3857d50f9f4dbe2c6df2630d567df283067cb4b90f36c27c3c9cc1d90d4",
+    "url": "https://ghproxy.com/https://github.com/rocksdanister/lively/releases/download/v2.0.2.2/lively_setup_x86_full_v2022.exe",
+    "hash": "ece974279c873074fcb02e3ee5494c99d99e6e24544967a00c5d551749a04e86",
     "pre_install": [
         "$runtimeCache = \"$env:USERPROFILE\\AppData\\Local\\Lively Wallpaper\"",
         "$runtimeCachePersist = \"$persist_dir\\data\"",
