@@ -23,7 +23,7 @@ scoop bucket add 3rd https://gitee.com/weidows-projects/scoop-3rd
 scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
 ```
 
-![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)
+![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)
 
 # gist
 
