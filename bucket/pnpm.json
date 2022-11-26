@@ -1,0 +1,26 @@
+{
+    "version": "7.17.0",
+    "description": "Fast, disk space efficient package manager -- 快速的，节省磁盘空间的包管理工具",
+    "homepage": "https://pnpm.io/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://ghproxy.com/https://github.com/pnpm/pnpm/releases/download/v7.17.0/pnpm-win-x64.exe#/pnpm.exe",
+            "hash": "ea1d3841503b28c05f672661afdc7d3ed221d33c81d17d36d2ca4df81eb5b857"
+        }
+    },
+    "post_install": [
+        "pnpm config set store-dir $dir/.pnpm-store"
+    ],
+    "bin": "pnpm.exe",
+    "persist":[".pnpm-store"],
+    "checkver": {
+        "github": "https://github.com/pnpm/pnpm"
+    },
+    "autoupdate": {
+        "url": "https://github.com/pnpm/pnpm/releases/download/v$version/pnpm-win-x64.exe#/pnpm.exe",
+        "hash": {
+            "mode": "download"
+        }
+    }
+}
