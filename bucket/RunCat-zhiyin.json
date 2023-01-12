@@ -8,16 +8,21 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Weidows/RunCat_for_windows/releases/download/2.0/RunCat-x64.zip",
-            "hash": "eac57dff96005068b5a150b261812ce8a8942d934ef2bd1022fecd8481cf7fb5"
+            "url": "https://ghproxy.com/https://github.com/Weidows/RunCat_for_windows/releases/download/2.0/RunCat.exe",
+            "hash": "3ef05d0cc8499e746483b935baafff8e0bceefd418fc0b8eb4af66c055795d6c"
         }
     },
-    "shortcuts": [["RunCat.exe", "RunCat"]],
+    "shortcuts": [
+        [
+            "RunCat.exe",
+            "RunCat"
+        ]
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Weidows/RunCat_for_windows/releases/download/$version/RunCat-x64.zip"
+                "url": "https://ghproxy.com/https://github.com/Weidows/RunCat_for_windows/releases/download/$version/RunCat.exe"
             }
         }
     }
