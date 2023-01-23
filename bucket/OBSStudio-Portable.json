@@ -8,6 +8,12 @@
         "Add Virtual Camera module by running: \"$dir\\data\\obs-plugins\\win-dshow\\virtualcam-install.bat\"",
         "Remove it by running: \"$dir\\data\\obs-plugins\\win-dshow\\virtualcam-uninstall.bat\""
     ],
+    "suggest": {
+        "OBS-Plugins": [
+            "obs-plugin-droidcam_fixed",
+            "obs-plugin-backgroundremoval"
+        ]
+    },
     "architecture": {
         "64bit": {
             "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-29.0-Full-x64.zip",
@@ -22,10 +28,9 @@
         "regex": "OBS-Studio-([\\d.]+)-Full-x64\\.zip"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-x64.zip"
-            }
+        "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-x64.zip",
+        "hash": {
+            "mode": "download"
         }
     }
 }
