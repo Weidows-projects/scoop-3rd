@@ -8,11 +8,6 @@
         }
     },
     "pre_install": [
-        "$x = 20",
-        "if($x -eq 10){",
-        "   echo 1",
-        "} elseif($x -eq 20){",
-        "   echo 2",
-        "}"
+        "echo "
     ]
 }
