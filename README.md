@@ -3,27 +3,27 @@
  * @Author: Weidows
  * @Date: 2021-10-08 18:09:46
  * @LastEditors: Weidows
- * @LastEditTime: 2022-02-08 00:34:30
- * @FilePath: \scoop-3rd\README.md
+ * @LastEditTime: 2023-05-03 13:15:31
+ * @FilePath: \3rd\README.md
  * @Description:
  * @!: *********************************************************************
 -->
 
 > this is an expansion repo for [kkzzhizhou/scoop-apps](https://github.com/kkzzhizhou/scoop-apps) \
-> 此库为上述库的扩展库 \
-> 主要更新维护日常/开发使用的软件
+> 此库为上述库的扩展库 (已收录) \
+> 主要更新维护日常/开发使用的软件 (部分软件是其他库的功能性魔改)
 
 # Usage
-
-```
-scoop bucket add 3rd https://gitee.com/weidows-projects/scoop-3rd
-```
 
 ```
 scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
 ```
 
-![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)
+```
+scoop bucket add 3rd https://gitee.com/weidows-projects/scoop-3rd
+```
+
+<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
 
 # gist
 
