@@ -1,21 +1,17 @@
 {
-    "version": "3.4.13",
+    "version": "3.4.14",
     "description": "Simple and powerful Git GUI",
     "homepage": "https://www.sourcetreeapp.com",
     "license": {
         "identifier": "Proprietary",
         "url": "https://www.atlassian.com/legal/software-license-agreement"
     },
-    "notes": [
-        "Use scoop-git-all instead of sourcetree's git."
-    ],
-    "depends": [
-        "git-all"
-    ],
+    "notes": "Use scoop-git-all instead of sourcetree's git.",
+    "depends": "git-all",
     "architecture": {
         "64bit": {
-            "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTree-3.4.13-full.nupkg",
-            "hash": "sha1:0f63cda8ae7f2018bd6b652d53ede18e829d57f8",
+            "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTree-3.4.14-full.nupkg",
+            "hash": "sha1:d2ca00f2ff807e7d159913598f99e0952f868916",
             "extract_dir": "lib\\net45"
         }
     },
@@ -29,7 +25,6 @@
         "    $runtimeCache = \"$env:LOCALAPPDATA\\$folder\"",
         "    $runtimeCachePersist = \"$persist_dir\\LOCALAPPDATA\\$folder\"",
         "    New-Item -Type Junction -Path \"$env:LOCALAPPDATA\\$folder\\SourceTree\\git_local\" -Target $scoopdir\\apps\\git-all\\current | Out-Null",
-
         "  }",
         "  if (Test-Path \"$env:APPDATA\\$folder\") {",
         "    $runtimeCache = \"$env:APPDATA\\$folder\"",
@@ -46,7 +41,12 @@
         "}"
     ],
     "bin": "SourceTree.exe",
-    "shortcuts": [["SourceTree.exe", "Sourcetree"]],
+    "shortcuts": [
+        [
+            "SourceTree.exe",
+            "Sourcetree"
+        ]
+    ],
     "checkver": {
         "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/RELEASES",
         "regex": "SourceTree-([\\d.]+)-full\\.nupkg",
