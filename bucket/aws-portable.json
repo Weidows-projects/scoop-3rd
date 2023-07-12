@@ -1,16 +1,16 @@
 {
-    "version": "1.22.1",
-    "description": "Encore is the end-to-end Backend Development Platform that lets you escape cloud complexity.",
-    "homepage": "https://github.com/encoredev/encore",
-    "license": "MPL-2.0",
+    "version": "2.13.0",
+    "description": "Unified tool to manage AWS services",
+    "homepage": "https://aws.amazon.com/cli/",
+    "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://d2f391esomvqpi.cloudfront.net/encore-1.22.1-windows_amd64.tar.gz",
-            "hash": "272dadde3642d8bf7eda9d7b9070bde48157368f03621f8f9b25b9a4cb0f0e0f"
+            "url": "https://awscli.amazonaws.com/AWSCLIV2-2.13.0.msi",
+            "hash": "5b27e0aec2de78648b33cb15008efc186f322aa39ac1b27fc466a35cd42e662b"
         }
     },
+    "extract_dir": "Amazon\\AWSCLIV2",
     "post_install": [
-        "mkdir -p \"$env:APPDATA\\encore\" -ErrorAction SilentlyContinue",
         "function Create-Junction { param ([string]$runtimeCache, [string]$runtimeCachePersist)",
         "  if (Test-Path $runtimeCache) { return }",
         "  if (Test-Path $runtimeCachePersist) {",
@@ -28,15 +28,16 @@
         "  Create-Junction -runtimeCache \"$env:APPDATA\\$folder\" -runtimeCachePersist \"$persist_dir\\APPDATA\\$folder\"",
         "}"
     ],
-    "env_add_path": "bin",
+    "bin": ["aws.exe", "aws_completer.exe"],
     "checkver": {
-        "url": "https://encore.dev/api/releases",
-        "regex": "\"([\\d.]+)\","
+        "url": "https://api.github.com/repos/aws/aws-cli/tags",
+        "jsonpath": "$[0].name"
     },
     "autoupdate": {
-        "url": "https://d2f391esomvqpi.cloudfront.net/encore-$version-windows_amd64.tar.gz",
-        "hash": {
-            "mode": "download"
+        "architecture": {
+            "64bit": {
+                "url": "https://awscli.amazonaws.com/AWSCLIV2-$version.msi"
+            }
         }
     }
 }
