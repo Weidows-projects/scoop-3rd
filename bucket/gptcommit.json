@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/zurawiki/gptcommit/releases/download/v$version/gptcommit-x86_64-pc-windows-msvc.zip",
+            "url": "https://github.com/zurawiki/gptcommit/releases/download/v0.5.11/gptcommit-x86_64-pc-windows-msvc.zip",
             "hash": "3fee6cd1beb1c26dd826764a50e46109a64b960ff46076132d400db79e3d9bf9"
         }
     },
