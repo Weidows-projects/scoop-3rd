@@ -1,5 +1,5 @@
 {
-    "version": "1427573",
+    "version": "4b94a60",
     "description": "A skin to make Steam look more like a native GNOME app",
     "homepage": "https://github.com/yurisuika/Zehn",
     "license": "MIT",
@@ -7,7 +7,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/yurisuika/Zehn/archive/refs/heads/master.zip",
-            "hash": "0695eeb82dff58e92d8f8de413a749dca6b39527155e77a93ccef55c72f8f974"
+            "hash": "8cffbf93ee6ad6f218907ca5a2277aa1bb6947bb263aebc152569741e96a3a9b"
         }
     },
     "post_install": [
