@@ -5,9 +5,8 @@
     "description": "辅以 scoop 本体的扩展",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/test.7z",
-            "hash": "F7EA4471DC5D2133739EBA2101A4426EF8F9E755978182A371928D78B7822C35",
-            "extract_dir": "test"
+            "url": "https://github.com/Weidows-projects/scoop-3rd/releases/download/1.0.0/scoop-ext.7z",
+            "hash": "0889E4EC50A0ADA404D5E171AB729A874A8D223B44948D276925E4CB87BB3A4E"
         }
     },
     "post_install": [
@@ -38,6 +37,6 @@
         "name": "scoop-ext"
     },
     "persist": [
-        "extras.ps1"
+        "scoop-ext.ps1"
     ]
 }
