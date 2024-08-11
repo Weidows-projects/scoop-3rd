@@ -3,8 +3,8 @@
  * @Author: Weidows
  * @Date: 2021-10-08 18:09:46
  * @LastEditors: Weidows
- * @LastEditTime: 2023-08-25 02:58:08
- * @FilePath: \3rd\README.md
+ * @LastEditTime: 2024-08-07 13:29:50
+ * @FilePath: \Blog-privated:\Scoop\buckets\3rd\README.md
  * @Description:
  * @!: *********************************************************************
 -->
@@ -29,8 +29,8 @@ scoop bucket add 3rd https://github.com/Weidows-projects/scoop-3rd
 scoop bucket add 3rd https://gitee.com/weidows-projects/scoop-3rd
 ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 # gist
 
-> 此库内部分教程可参见: https://weidows.github.io/post/experience/shell/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/#scoop
+> 此库内部分教程可参见: https://weidows.github.io/post/lang/shell/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/#scoop
