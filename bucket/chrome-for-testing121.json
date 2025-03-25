@@ -13,13 +13,13 @@
   "bin": [
       [
           "chrome.exe",
-          "chrome@121"
+          "chrome-for-testing@121"
       ]
   ],
   "shortcuts": [
     [
       "chrome.exe",
-      "chrome-for-testing\\chrome@121"
+      "chrome-for-testing\\chrome-for-testing@121"
     ]
   ],
   "autoupdate": {

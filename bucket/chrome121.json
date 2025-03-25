@@ -12,6 +12,12 @@
   "pre_install": [
     "Expand-7zipArchive \"$dir\\chrome.7z\" -ExtractDir 'Chrome-bin' -Removal"
   ],
+  "bin": [
+      [
+          "chrome.exe",
+          "chrome@121"
+      ]
+  ],
   "shortcuts": [
     [
       "chrome.exe",
