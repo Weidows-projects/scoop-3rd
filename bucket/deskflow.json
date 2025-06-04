@@ -17,6 +17,9 @@
             "deskflow"
         ]
     ],
+    "persist": [
+        "settings"
+    ],
     "checkver": {
         "github": "https://github.com/deskflow/deskflow"
     },
