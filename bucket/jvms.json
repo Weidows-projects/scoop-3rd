@@ -19,7 +19,6 @@
         "download",
         "store"
     ],
-
     "checkver": "github",
     "autoupdate": {
         "architecture": {
