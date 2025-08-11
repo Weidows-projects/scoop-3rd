@@ -14,7 +14,11 @@
     },
     "bin": "choco.exe",
     "persist": [
+        ".chocolatey",
+        "bin",
         "config",
+        "lib",
+        "lib-bkp",
         "logs"
     ],
     "checkver": {
