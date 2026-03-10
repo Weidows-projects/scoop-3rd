@@ -5,17 +5,10 @@
   "license": "Freeware",
   "architecture": {
     "64bit": {
-      "url": "https://autoglm.aminer.cn/autoclaw/updates/autoclaw-0.2.12-setup.exe#/dl.7z"
+      "url": "https://autoglm.aminer.cn/autoclaw/updates/autoclaw-0.2.12-setup.exe#/setup.exe"
     }
   },
-  "pre_install": [
-      "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
-      "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*\" -Force -Recurse"
-  ],
-  "shortcuts": [
-    [
-      "AutoClaw.exe",
-      "AutoClaw"
-    ]
-  ]
+  "installer": {
+    "file": "setup.exe"
+  }
 }
