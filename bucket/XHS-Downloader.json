@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/JoeanAmier/XHS-Downloader/releases/download/2.7/XHS-Downloader_V2.7_Windows_X64.zip",
-            "hash": "a434b04d5871fae5952d89ee5c2296d64d1ca9997592b4ddde6caba80539432f"
+            "hash": "ff5e7b6355895d5d18232f5db69d5b08c7237720c2c8c57b1d9b5bde8fa40c99"
         }
     },
     "shortcuts": [
@@ -23,7 +23,7 @@
         "hash": {
             "mode": "extract",
             "url": "https://github.com/JoeanAmier/XHS-Downloader/releases/expanded_assets/$version",
-            "regex": "XHS-Downloader_V$version.*\\.zip.*?sha256:$sha256"
+            "regex": "XHS-Downloader_V$version_Windows_X64\\.zip.*?sha256:$sha256"
         }
     }
 }
