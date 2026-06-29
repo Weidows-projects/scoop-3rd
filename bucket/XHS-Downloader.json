@@ -1,0 +1,29 @@
+{
+    "version": "2.7",
+    "description": "小红书（XiaoHongShu、RedNote）链接提取/作品采集工具：提取账号发布、收藏、点赞、专辑作品链接；提取搜索结果作品、用户链接；采集小红书作品信息；提取小红书作品下载地址；下载小红书作品文件",
+    "homepage": "https://github.com/JoeanAmier/XHS-Downloader",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/JoeanAmier/XHS-Downloader/releases/download/2.7/MaaNTE-win-x86_64-v2.7-MXU.zip",
+            "hash": "a434b04d5871fae5952d89ee5c2296d64d1ca9997592b4ddde6caba80539432f"
+        }
+    },
+    "shortcuts": [
+        [
+            "XHS_Downloader.exe",
+            "XHS_Downloader"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/JoeanAmier/XHS-Downloader"
+    },
+    "autoupdate": {
+        "url": "https://github.com/JoeanAmier/XHS-Downloader/releases/download/$version/MaaNTE-win-x86_64-v$version-MXU.zip",
+        "hash": {
+            "mode": "extract",
+            "url": "https://github.com/JoeanAmier/XHS-Downloader/releases/expanded_assets/$version",
+            "regex": "XHS-Downloader_V$version.*\\.zip.*?sha256:$sha256"
+        }
+    }
+}
