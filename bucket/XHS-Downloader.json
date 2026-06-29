@@ -9,10 +9,16 @@
             "hash": "ff5e7b6355895d5d18232f5db69d5b08c7237720c2c8c57b1d9b5bde8fa40c99"
         }
     },
+    "bin": [
+        [
+            "main.exe",
+            "XHS-Downloader"
+        ]
+    ],
     "shortcuts": [
         [
             "main.exe",
-            "XHS_Downloader"
+            "XHS-Downloader"
         ]
     ],
     "checkver": {
