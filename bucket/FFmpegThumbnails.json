@@ -4,9 +4,7 @@
     "homepage": "https://github.com/megakraken/FFmpegThumbnails",
     "license": "GPL-2.0",
     "suggest": {
-        "FFmpeg": [
-            "ffmpeg"
-        ]
+        "FFmpeg": "ffmpeg"
     },
     "architecture": {
         "64bit": {
@@ -29,8 +27,8 @@
                 "url": "https://github.com/megakraken/FFmpegThumbnails/releases/download/v$version/FFmpegThumbnails.exe",
                 "hash": {
                     "mode": "extract",
-                    "url": "https://github.com/megakraken/FFmpegThumbnails/releases/expanded_assets/$version",
-                    "regex": "FFmpegThumbnails\\.exe.*?sha256:$sha256"
+                    "url": "https://github.com/megakraken/FFmpegThumbnails/releases/expanded_assets/v$version",
+                    "regex": "FFmpegThumbnails\\.exe.*?sha256:([a-f0-9]{64})"
                 }
             }
         }
