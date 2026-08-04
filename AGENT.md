@@ -179,6 +179,27 @@ D:\Downloads\scoop\
 
 ---
 
+## Manifest 字段顺序规范 (推荐)
+
+为了保持一致性, 建议按以下顺序排列字段:
+
+```
+version
+description
+homepage
+license
+suggest          # 靠前, 便于查看依赖建议
+architecture
+shortcuts / bin  # GUI 用 shortcuts, CLI 用 bin
+checkver
+autoupdate
+persist          # 如需要
+depends          # 如需要
+pre_install / post_install / ...  # 脚本类靠后
+```
+
+---
+
 ## 脚本环境变量
 
 在 `pre_install`, `post_install`, `installer.script`, `uninstaller.script` 中可用:
@@ -282,6 +303,30 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
 }
 ```
 
+### 模式 4: 从 GitHub expanded_assets 提取哈希 (推荐, 避免下载文件)
+
+GitHub Release 页面的 `expanded_assets` 包含每个 asset 的 SHA256, 可直接提取:
+
+```json
+"autoupdate": {
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/owner/repo/releases/download/v$version/app.exe",
+            "hash": {
+                "mode": "extract",
+                "url": "https://github.com/owner/repo/releases/expanded_assets/v$version",
+                "regex": "app\\.exe.*?sha256:([a-f0-9]{64})"
+            }
+        }
+    }
+}
+```
+
+**关键点**:
+- `expanded_assets` URL 必须使用 **带 `v` 前缀** 的 tag: `v$version`
+- 正则需使用 **捕获组** `([a-f0-9]{64})` 提取 hash
+- 适用于近 1-2 年的 GitHub Release, 大多数新增软件均支持
+
 ### 可用版本变量
 
 | 变量 | 示例 (`3.7.1.2`) |
@@ -330,6 +375,9 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "description": "应用描述",
     "homepage": "https://github.com/owner/repo",
     "license": "MIT",
+    "suggest": {
+        "FFmpeg": ["ffmpeg"]
+    },
     "architecture": {
         "64bit": {
             "url": "https://github.com/owner/repo/releases/download/v1.0.0/app-1.0.0-x64.zip",
@@ -346,11 +394,13 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/owner/repo/releases/download/v$version/app-$version-x64.zip"
+                "url": "https://github.com/owner/repo/releases/download/v$version/app-$version-x64.zip",
+                "hash": {
+                    "mode": "extract",
+                    "url": "https://github.com/owner/repo/releases/expanded_assets/v$version",
+                    "regex": "app-\\$version-x64\\.zip.*?sha256:([a-f0-9]{64})"
+                }
             }
-        },
-        "hash": {
-            "mode": "download"
         }
     }
 }
@@ -405,10 +455,14 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/owner/repo/releases/download/v$version/app-$version-x64.zip"
+                "url": "https://github.com/owner/repo/releases/download/v$version/app-$version-x64.zip",
+                "hash": {
+                    "mode": "extract",
+                    "url": "https://github.com/owner/repo/releases/expanded_assets/v$version",
+                    "regex": "app-\\$version-x64\\.zip.*?sha256:([a-f0-9]{64})"
+                }
             }
-        },
-        "hash": { "mode": "download" }
+        }
     }
 }
 ```
@@ -422,7 +476,7 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "homepage": "https://github.com/owner/repo",
     "license": "GPL-2.0",
     "suggest": {
-        "OBS": ["extras/obs-studio", "3rd/OBSStudio-Portable"]
+        "OBS": ["extras/obs-studio", "extras/obs-studio-small"]
     },
     "architecture": {
         "64bit": {
@@ -466,7 +520,7 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "    Remove-Item $runtimeCache -Force -Recurse -ErrorAction SilentlyContinue",
     "    New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
     "  } else {",
-    "    mkdir $runtimeCache -ErrorAction SilentlyContinue",
+        "    mkdir $runtimeCache -ErrorAction SilentlyContinue",
     "    Move-Item $runtimeCache $runtimeCachePersist -Force",
     "    New-Item -Type Junction -Path $runtimeCache -Target $runtimeCachePersist | Out-Null",
     "  }",
@@ -524,23 +578,40 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
 }
 ```
 
-### 场景 8: 无架构区分 (单 URL)
-
-如果软件只有一种架构, 不需要 `architecture` 包装:
+### 场景 8: 单 exe / 无架构区分 (GUI 程序用 shortcuts)
 
 ```json
 {
-    "version": "1.0.0",
-    "homepage": "https://github.com/owner/repo",
-    "description": "description",
-    "url": "https://github.com/owner/repo/releases/download/v1.0.0/app.7z",
-    "hash": "sha256hash...",
-    "bin": "app.exe",
-    "shortcuts": [["app.exe", "AppName"]],
-    "checkver": { "github": "https://github.com/owner/repo" },
+    "version": "1.2.0",
+    "description": "An IThumbnailProvider for Windows explorer that uses FFmpeg to generate thumbnails for various video files.",
+    "homepage": "https://github.com/megakraken/FFmpegThumbnails",
+    "license": "GPL-2.0",
+    "suggest": {
+        "FFmpeg": ["ffmpeg"]
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/megakraken/FFmpegThumbnails/releases/download/v1.2.0/FFmpegThumbnails.exe",
+            "hash": "1f147917335ba0fe2f1a43a44e977766cf32abe2f5f7664ae26ec09e17a4cc22"
+        }
+    },
+    "shortcuts": [
+        ["FFmpegThumbnails.exe", "FFmpegThumbnails"]
+    ],
+    "checkver": {
+        "github": "https://github.com/megakraken/FFmpegThumbnails"
+    },
     "autoupdate": {
-        "url": "https://github.com/owner/repo/releases/download/v$version/app.7z",
-        "hash": { "mode": "download" }
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/megakraken/FFmpegThumbnails/releases/download/v$version/FFmpegThumbnails.exe",
+                "hash": {
+                    "mode": "extract",
+                    "url": "https://github.com/megakraken/FFmpegThumbnails/releases/expanded_assets/v$version",
+                    "regex": "FFmpegThumbnails\\.exe.*?sha256:([a-f0-9]{64})"
+                }
+            }
+        }
     }
 }
 ```
@@ -598,6 +669,24 @@ if (Test-Path "$env:USERPROFILE\.config\app") {
 4. **安装包无法直接解压**: 尝试 `#/dl.7z` 重命名, 或 `innosetup: true`, 或 `Expand-7zipArchive` 手动解包
 5. **版本号提取失败**: 查看 GitHub Releases 页面 tag 格式, 看是否有 `v` 前缀、`-rc` 等
 6. **需要用户协助**: 记录问题, 请求用户提供更多信息
+
+---
+
+## 本地测试流程 (推荐每次修改后执行)
+
+```powershell
+# 1. 验证 JSON 语法
+python -c "import json; json.load(open('bucket/xxx.json',encoding='utf-8')); print('JSON OK')"
+
+# 2. checkver 测试 (强制更新, 验证 autoupdate.hash.extract)
+cd C:\Users\weidows\scoop\buckets\3rd
+.\bin\checkver.ps1 <AppName> -Force
+
+# 3. 预期输出应包含:
+#    Searching hash for xxx.exe in https://github.com/.../expanded_assets/vX.Y.Z
+#    Found: <sha256> using Extract Mode
+#    Writing updated xxx manifest
+```
 
 ---
 
