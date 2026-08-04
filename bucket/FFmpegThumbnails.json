@@ -9,7 +9,18 @@
             "hash": "1f147917335ba0fe2f1a43a44e977766cf32abe2f5f7664ae26ec09e17a4cc22"
         }
     },
-    "bin": "FFmpegThumbnails.exe",
+    "shortcuts": [
+        [
+            "FFmpegThumbnails.exe",
+            "FFmpegThumbnails"
+        ]
+    ],
+    "suggest": {
+        "FFmpeg": [
+            "ffmpeg",
+            "3rd/ffmpeg-full"
+        ]
+    },
     "checkver": {
         "github": "https://github.com/megakraken/FFmpegThumbnails"
     },
