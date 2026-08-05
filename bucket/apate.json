@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/rippod/apate/releases/download/apate.v1.4.2/apate.v1.4.2.zip",
-            "hash": "bde2f49c2aefeeaddeaf57dff992e693b8a0f852cc22ce61b016130e6d2ca333",
+            "hash": "23c42085f440aaadba6e70a4d5f4040cc3879f673de816f7a4c5ddf358153bc3",
             "extract_dir": "apate.v1.4.2"
         }
     },
