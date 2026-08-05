@@ -1,0 +1,34 @@
+{
+    "version": "1.4.2",
+    "description": "简洁、快速地对文件进行格式伪装",
+    "homepage": "https://github.com/rippod/apate",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/rippod/apate/releases/download/apate.v1.4.2/apate.v1.4.2.zip",
+            "hash": "bde2f49c2aefeeaddeaf57dff992e693b8a0f852cc22ce61b016130e6d2ca333",
+            "extract_dir": "apate.v1.4.2"
+        }
+    },
+    "shortcuts": [
+        [
+            "apate.exe",
+            "Apate"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/rippod/apate",
+        "regex": "apate\\.v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/rippod/apate/releases/download/apate.v$version/apate.v$version.zip",
+                "extract_dir": "apate.v$version",
+                "hash": {
+                    "mode": "download"
+                }
+            }
+        }
+    }
+}
