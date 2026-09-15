@@ -302,6 +302,11 @@ Scoop 自动匹配 tag, 正则 `/\/releases\/tag\/(?:v|V)?([\d.]+)/`, 忽略预�
     "hash": { "mode": "download" }
 }
 ```
+> **Shovel 坑**: 本仓 Excavator 跑的是 `shovel-org/GithubActions`, 其 `update_manifest_prop`
+> 仅当 `autoupdate.architecture` 存在时才更新架构级 `extract_dir`(Scoop 原版会回退到顶层).
+> 所以 `extract_dir` 写在 `architecture.*` 下的 manifest, 必须把模板写成
+> `autoupdate.architecture.<arch>.extract_dir`, 否则版本照升、目录名原地踏步
+> (前车: `deskflow` 的 `extract_dir` 在 1.25.0/1.26.0 两次自动更新中都没动).
 
 ### 模式 4: 从 GitHub expanded_assets 提取哈希 (推荐, 避免下载文件)
 
