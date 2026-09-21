@@ -329,7 +329,8 @@ GitHub Release 页面的 `expanded_assets` 包含每个 asset 的 SHA256, 可直
 
 **关键点**:
 - `expanded_assets` URL 必须使用 **带 `v` 前缀** 的 tag: `v$version`
-- 正则需使用 **捕获组** `([a-f0-9]{64})` 提取 hash
+- 正则里的 hash 用 `$sha256` 占位即可 (Scoop 会把它替换成捕获组 `([a-fA-F0-9]{64})`; 手写 `([a-f0-9]{64})` 等价)
+- **`$version` 前面不要加反斜杠**: `app-\\$version` 替换后是 `app-\0.1.20`, `\0` 在 .NET 正则里是八进制转义, 整条正则永远匹配不到 (本仓实测: 带反斜杠不匹配, 去掉才匹配). 已收录的 multica/ark-cli/volcengine-cli/bbdown 都是无反斜杠写法
 - 适用于近 1-2 年的 GitHub Release, 大多数新增软件均支持
 
 ### 可用版本变量
@@ -403,7 +404,7 @@ GitHub Release 页面的 `expanded_assets` 包含每个 asset 的 SHA256, 可直
                 "hash": {
                     "mode": "extract",
                     "url": "https://github.com/owner/repo/releases/expanded_assets/v$version",
-                    "regex": "app-\\$version-x64\\.zip.*?sha256:([a-f0-9]{64})"
+                    "regex": "app-$version-x64\\.zip.*?sha256:$sha256"
                 }
             }
         }
@@ -464,7 +465,7 @@ GitHub Release 页面的 `expanded_assets` 包含每个 asset 的 SHA256, 可直
                 "hash": {
                     "mode": "extract",
                     "url": "https://github.com/owner/repo/releases/expanded_assets/v$version",
-                    "regex": "app-\\$version-x64\\.zip.*?sha256:([a-f0-9]{64})"
+                    "regex": "app-$version-x64\\.zip.*?sha256:$sha256"
                 }
             }
         }
@@ -691,7 +692,20 @@ cd C:\Users\weidows\scoop\buckets\3rd
 #    Searching hash for xxx.exe in https://github.com/.../expanded_assets/vX.Y.Z
 #    Found: <sha256> using Extract Mode
 #    Writing updated xxx manifest
+# 4. 安装测试 (推荐): scoop install 3rd/<AppName>  →  scoop uninstall <AppName>
 ```
+
+> **本机网络坑 (实测)**: `bin/checkver.ps1 -Force` 走 .NET 系统代理, 能取到
+> `expanded_assets` 与 GitHub API; 但 `scoop install` 直接下载 release 资源时常报
+> `The SSL connection could not be established` (TLS 被中断), **不是 manifest 的问题**。
+> 绕过办法 (可完整验证 hash/解压/bin/shim):
+>
+> ```bash
+> gh release download <tag> --repo <owner>/<repo> --pattern "<asset>" --dir "$LOCALAPPDATA/Temp/x"
+> # 按 scoop 缓存命名规则放入缓存: <app>#<version>#<sha256(url) 前 7 位><扩展名>
+> python -c "import hashlib,shutil,os;u='<asset-url>';shutil.copy2('本地包',os.path.expanduser('~/scoop/cache/<app>#<version>#'+hashlib.sha256(u.encode()).hexdigest()[:7]+'.zip'))"
+> scoop install 3rd/<AppName>   # 输出应含 'Loading xxx.zip from cache' + 'Checking hash ... ok'
+> ```
 
 ---
 
