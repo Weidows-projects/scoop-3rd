@@ -143,6 +143,13 @@ D:\Downloads\scoop\
 | `persist` | string/array | 需要持久化的文件或目录, 如 `"data"`, `"config.json"`, `["Data", "config.json"]` |
 
 > **注意**: `%APPDATA%` 和 `%LOCALAPPDATA%` 下的路径 (如 `%APPDATA%\bilimusic`) **不需要** persist, 除非有特殊需求.
+>
+> **坑 (实测)**: `persist` 指向应用"首次运行时才创建"的文件 (如 `config.json`) 时, 安装时源文件还不存在,
+> Scoop 只能建一个同名**目录**再挂 junction (`lib/install.ps1: persist_data`, 官方注释也承认这点),
+> 应用之后写这个文件会直接报 `PermissionError / Is a directory`。解决: 用 `pre_install` 先把文件建出来
+> (`"pre_install": "New-Item -ItemType File -Path \"$dir\\config.json\" -Force"`), persist 阶段会把它
+> 移到 `persist\<app>\` 再建硬链接, 设置就能跨版本保留。**不能用 `post_install`** —— persist 在它之前执行。
+> 验证: `stat -c '%F %h'` 应显示 `regular file / 2 links`, 装-卸载(不 purge)-再装后内容仍在。
 
 ### 依赖与建议
 
