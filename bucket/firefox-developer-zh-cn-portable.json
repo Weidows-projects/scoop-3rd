@@ -3,7 +3,7 @@
     "description": "Developer. Developer builds of Firefox: the popular open source web browser",
     "homepage": "https://www.mozilla.org/zh-CN/firefox/developer/",
     "license": "MPL-2.0",
-    "changelog": "https://www.mozilla.org/en-US/firefox/104.0beta/releasenotes/",
+    "##": "Changelog: https://www.mozilla.org/en-US/firefox/104.0beta/releasenotes/",
     "architecture": {
         "64bit": {
             "url": "https://download-installer.cdn.mozilla.net/pub/devedition/releases/158.0b4/win64/zh-CN/Firefox%20Setup%20158.0b4.exe#/firefox-developer.7z",

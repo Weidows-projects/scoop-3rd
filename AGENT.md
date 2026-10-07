@@ -716,6 +716,40 @@ cd C:\Users\weidows\scoop\buckets\3rd
 
 ---
 
+## CI 测试 (Scoop 官方 harness)
+
+`.github/workflows/ci.yml` 的两个矩阵任务 (powershell / pwsh) 做的事:
+
+1. checkout 本仓到 `my_bucket`, 并 checkout **`ScoopInstaller/Scoop`** 到 `scoop_core` 当 `SCOOP_HOME`.
+   (不要用已归档的 `Ash258/Scoop-Core`: 它的测试文件是 Pester 4 时代的写法, 在 Pester 5+ 下
+   `BeforeAll` 直接抛 `setup_working is not recognized`, 于是整条流水线从未真正校验过任何 manifest.)
+2. 自己 `Install-Module BuildHelpers, Pester` (先确保 PSGallery 仓库已注册, 否则报
+   `There is no repository, use Register-PSRepository to register at least one`).
+3. 跑 `bin/test.ps1` -> 根目录 `Scoop-Bucket.Tests.ps1` -> dot-source `$SCOOP_HOME\test\Import-Bucket-Tests.ps1`.
+
+本地复现 (无需 CI):
+
+```powershell
+git clone --depth 1 https://github.com/ScoopInstaller/Scoop <tmp>/scoop_core
+Save-Module Pester -Path <tmp>/psmods -RequiredVersion 6.2.0   # 任意 >= 5.2.0 均可
+$env:SCOOP_HOME   = '<tmp>/scoop_core'
+$env:PSModulePath = '<tmp>/psmods;' + $env:PSModulePath
+.\bin\test.ps1     # 期望 Tests Passed: 220, Failed: 0 (CI 里只校验本次改动到的 manifest)
+```
+
+测试查什么 (任一失败即退出码非 0):
+
+- **schema**: `bucket/*.json` 必须过 scoop 的 `schema.json`. `version` / `homepage` / `license` 必填;
+  未定义属性 (如旧 scoop 的 `changelog`) 直接报错, 想保留信息就写成 `"##": "..."` 注释;
+  `autoupdate.architecture.<arch>` 内不允许 `hash` (要放 `autoupdate.hash`);
+  `hash` 不能是空字符串; `license` 写成对象时必须带 `identifier`.
+- **url 的 URI 校验用的是 .NET 的 `Uri` 检查**, 有个坑: 文件名里同时含中文和空格的 URL
+  **没有任何百分号编码形式能通过** — `%E5%A4%A9...%E5%8F%B0%20Setup%201.2.3.exe` 判非法, 而把空格换成
+  `-` 的 `%E5%A4%A9...%E5%8F%B0-Setup-1.2.3.exe` 就合法. 供应商只提供带空格的文件名时, 这个
+  manifest 只能放 `deprecated/` (前车: `tiantian-workbench`).
+- **文件风格** (整仓扫描, 含 `deprecated/`): CRLF; 结尾恰好 1 个换行; 无 UTF-8 BOM; 无行尾空格;
+  行首缩进只用空格 (YAML 例外, 允许 LF).
+
 ## 参考链接
 
 - [Scoop Wiki: Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
