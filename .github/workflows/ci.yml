@@ -39,19 +39,34 @@ jobs:
           path: 'scoop_core'
       - name: Install test dependencies
         run: |
-          # A runner image can come without the PSGallery repository registered;
-          # Install-Module then fails with 'There is no repository, use
-          # Register-PSRepository to register at least one.'
-          if (-not (Get-PSRepository -Name PSGallery -ErrorAction SilentlyContinue)) {
-            Register-PSRepository -Default
+          $required = @(
+            @{ Name = 'BuildHelpers'; Version = '2.0.1' }
+            @{ Name = 'Pester'; Version = '5.2.0' }
+          )
+          foreach ($module in $required) {
+            $have = Get-Module -ListAvailable -Name $module.Name |
+              Where-Object { $_.Version -ge [version] $module.Version } |
+              Select-Object -First 1
+            if ($have) {
+              Write-Host "$($module.Name) $($have.Version) is already available"
+              continue
+            }
+            # PowerShell 7.4+ ships PSResourceGet, which needs no NuGet provider.
+            # Windows PowerShell 5.1 falls back to PowerShellGet v2 - for that
+            # path the PSGallery repository has to exist, or Install-Module dies
+            # with 'There is no repository, use Register-PSRepository to register
+            # at least one.'
+            if (Get-Command Install-PSResource -ErrorAction SilentlyContinue) {
+              Install-PSResource -Name $module.Name -Version "[$($module.Version),)" -Scope CurrentUser -TrustRepository
+            } else {
+              if (-not (Get-PSRepository -Name PSGallery -ErrorAction SilentlyContinue)) {
+                Register-PSRepository -Default
+              }
+              Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+              Install-Module -Name $module.Name -MinimumVersion $module.Version -Force -AllowClobber -Scope CurrentUser -SkipPublisherCheck
+            }
           }
-          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-          if (Get-Command Install-PackageProvider -ErrorAction SilentlyContinue) {
-            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
-          }
-          foreach ($module in @(@{ Name = 'BuildHelpers'; Version = '2.0.1' }, @{ Name = 'Pester'; Version = '5.2.0' })) {
-            Install-Module $module.Name -MinimumVersion $module.Version -Force -AllowClobber -Scope CurrentUser
-          }
+          Get-Module -ListAvailable Pester, BuildHelpers | Select-Object Name, Version, Path | Format-Table -AutoSize
       - name: Run tests
         run: |
           $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
