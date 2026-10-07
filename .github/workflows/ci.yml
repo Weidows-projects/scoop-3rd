@@ -69,5 +69,9 @@ jobs:
           Get-Module -ListAvailable Pester, BuildHelpers | Select-Object Name, Version, Path | Format-Table -AutoSize
       - name: Run tests
         run: |
+          # Validate every manifest, not only the ones this commit touched: the
+          # harness switches to 'changed files only' whenever CI is true, which is
+          # how 13 schema violations sat unnoticed in bucket/ for months.
+          $env:CI = 'false'
           $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
           .\my_bucket\bin\test.ps1
