@@ -747,6 +747,11 @@ $env:PSModulePath = '<tmp>/psmods;' + $env:PSModulePath
   **没有任何百分号编码形式能通过** — `%E5%A4%A9...%E5%8F%B0%20Setup%201.2.3.exe` 判非法, 而把空格换成
   `-` 的 `%E5%A4%A9...%E5%8F%B0-Setup-1.2.3.exe` 就合法. 供应商只提供带空格的文件名时, 这个
   manifest 只能放 `deprecated/` (前车: `tiantian-workbench`).
+- **同一个 URI 在 5.1 和 pwsh 下判定不同**: 路径里的原生 UTF-8 中文 (如
+  `.../盘姬工具箱WV1.10CEXPB(190201).7z`) 在 .NET Framework (Windows PowerShell 5.1)
+  下判非法, 在 pwsh 的 .NET 下却合法 — 所以本地 pwsh 过不代表 CI 过. 解决: 把中文路径段
+  **百分号编码** (只编中文, 括号等 ASCII 原样保留), 两个宿主都合法; 请求线上送出的字节与
+  原样中文完全相同, 下载行为不变 (前车: `PanJi-GreenTools`).
 - **文件风格** (整仓扫描, 含 `deprecated/`): CRLF; 结尾恰好 1 个换行; 无 UTF-8 BOM; 无行尾空格;
   行首缩进只用空格 (YAML 例外, 允许 LF).
 
