@@ -3,7 +3,7 @@
     "description": "Unofficial Greasy Fork client + CLI. Search, inspect and download userscripts from the terminal.",
     "homepage": "https://github.com/Weidows/greasyfork-cli",
     "license": "MIT",
-    "notes": "Greasy Fork 需代理访问, 且 HTTP_PROXY/HTTPS_PROXY 会被忽略: 用 GF_PROXY / GREASYFORK_CLI_PROXY, 或 gf --proxy http://127.0.0.1:7890",
+    "notes": "Greasy Fork 大陆需代理: gf 自己按 GREASYFORK_CLI_PROXY / GF_PROXY / https_proxy / HTTPS_PROXY / http_proxy / HTTP_PROXY, 再按 git config --global https.proxy 的顺序查找并自动使用; 也可显式指定, 例如 gf --proxy http://127.0.0.1:7890 search bilibili",
     "architecture": {
         "64bit": {
             "url": "https://github.com/Weidows/greasyfork-cli/releases/download/v0.2.0/gf-windows-x64.zip",
