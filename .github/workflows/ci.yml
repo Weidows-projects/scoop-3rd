@@ -31,13 +31,27 @@ jobs:
       - name: Checkout Scoop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Ash258/Scoop-Core
+          # The manifest test harness lives in Scoop itself. Do not use the
+          # archived Ash258/Scoop-Core fork here: its Pester-4 era test files
+          # cannot run under Pester 5+, so the job died in a BeforeAll block
+          # and never validated a single manifest.
+          repository: ScoopInstaller/Scoop
           path: 'scoop_core'
-      - name: Install and cache test dependencies
-        uses: potatoqualitee/psmodulecache@9e4b63833c22c1768d648e115a9c849afdda22a5 # v6.3
-        with:
-          modules-to-cache: BuildHelpers, Pester
-          shell: ${{ matrix.shell }}
+      - name: Install test dependencies
+        run: |
+          # A runner image can come without the PSGallery repository registered;
+          # Install-Module then fails with 'There is no repository, use
+          # Register-PSRepository to register at least one.'
+          if (-not (Get-PSRepository -Name PSGallery -ErrorAction SilentlyContinue)) {
+            Register-PSRepository -Default
+          }
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          if (Get-Command Install-PackageProvider -ErrorAction SilentlyContinue) {
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
+          }
+          foreach ($module in @(@{ Name = 'BuildHelpers'; Version = '2.0.1' }, @{ Name = 'Pester'; Version = '5.2.0' })) {
+            Install-Module $module.Name -MinimumVersion $module.Version -Force -AllowClobber -Scope CurrentUser
+          }
       - name: Run tests
         run: |
           $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
