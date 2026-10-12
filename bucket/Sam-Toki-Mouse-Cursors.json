@@ -2,7 +2,10 @@
     "version": "10.00",
     "description": "原创极简风格鼠标指针，适用于 Windows 系统。 ／ Original mouse cursors (pointers) for Windows, with minimalistic design.",
     "homepage": "https://github.com/SamToki/Sam-Toki-Mouse-Cursors",
-    "license": "Unknown",
+    "license": {
+        "identifier": "CC-BY-NC-SA-3.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/3.0/"
+    },
     "architecture": {
         "64bit": {
             "url": "https://github.com/SamToki/Sam-Toki-Mouse-Cursors/releases/download/v10.00/STMC.zip",
