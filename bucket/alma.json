@@ -32,5 +32,17 @@
             "url": "https://github.com/yetone/alma-releases/releases/expanded_assets/v$version",
             "regex": "alma-$version-win-x64\\.exe.*?sha256:$sha256"
         }
-    }
+    },
+    "post_uninstall": [
+        "$shim = Join-Path $env:LOCALAPPDATA 'Alma\\bin'",
+        "$key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)",
+        "if ($key) {",
+        "    $raw = $key.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)",
+        "    $cur = @($raw -split ';' | Where-Object { $_ })",
+        "    $new = @($cur | Where-Object { $_.TrimEnd('\\') -ne $shim.TrimEnd('\\') })",
+        "    if ($new.Count -ne $cur.Count) { $key.SetValue('Path', ($new -join ';'), $key.GetValueKind('Path')) }",
+        "    $key.Close()",
+        "}",
+        "Remove-Item $shim -Recurse -Force -ErrorAction SilentlyContinue"
+    ]
 }
