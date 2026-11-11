@@ -73,7 +73,7 @@ D:\Downloads\scoop\
 | `.msi` | 直接解压 (Scoop 自动处理) 或 `msiexec` 安装 | `biliup-app`, `warp-cloudflare` |
 | `.nupkg` | 解压后清理 `_rels`, `package`, `*Content*.xml` | `psmodule-PowerShellAI` |
 | InnoSetup 安装包 | `"innosetup": true` 自动解包 | 常见于 `*_setup.exe` |
-| 需要 `#/dl.7z` 的 | NSIS 安装包, 需提取 `$PLUGINSDIR/app-64.7z` | `Cursor`, `He3` |
+| 需要 `#/dl.7z` 的 | NSIS 安装包, 分两种布局: **electron-builder** 包内有 `$PLUGINSDIR/app-64.7z`, 要再解一层; **自研/新打包器**(如 `almapack`) 把应用文件平铺在包内, 解完 `#/dl.7z` 就是成品, 只需清 `$PLUGINSDIR`. 判据: `7z l dl.7z` 列出的都是 `App.exe`/`renderer\...` 且**没有** `app-64.7z` | `Cursor`, `He3`, `alma` |
 
 ### 步骤 5: 确定安装目录内容
 
@@ -644,6 +644,20 @@ Remove-Item -Recurse -Force "$dir\`$*"
 
 # 删除 nupkg 元数据
 Remove-Item "$dir\_rels", "$dir\package", "$dir\*Content*.xml" -Recurse
+```
+
+### NSIS 双布局兼容 (electron-builder 与平铺打包器都要能装)
+
+写 `pre_install` 时不要无条件 `Expand-7zipArchive ...app-64.7z`: 上游换打包器后包内不再有这个文件,
+脚本会以 `Exit code 2` 失败 (前车: `alma` 0.4.563+, 上游改用自研 `almapack`)。用 `Test-Path` 分支 + 落地校验:
+
+```json
+"pre_install": [
+    "$archive = \"$dir\\`$PLUGINSDIR\\app-64.7z\"",
+    "if (Test-Path $archive) { Expand-7zipArchive $archive $dir }",
+    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\Uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue",
+    "if (!(Test-Path \"$dir\\App.exe\")) { throw 'App.exe not found after extraction' }"
+]
 ```
 
 ### 检查并创建持久化目录
