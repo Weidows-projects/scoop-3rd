@@ -1,0 +1,36 @@
+{
+    "version": "0.4.567",
+    "description": "Elegant AI Provider Orchestration",
+    "homepage": "https://alma.now/",
+    "license": "Proprietary",
+    "##": "0.4.5xx 起上游改用自研 almapack 打包: 安装包内是平铺的应用文件, 不再有 electron-builder 的 $PLUGINSDIR/app-64.7z. pre_install 兼容两种布局",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/yetone/alma-releases/releases/download/v0.4.567/alma-0.4.567-win-x64.exe#/dl.7z",
+            "hash": "e2791d5a10f936de40281a147450d8efd402723c152cb4169d36372739791831",
+            "pre_install": [
+                "$archive = \"$dir\\`$PLUGINSDIR\\app-64.7z\"",
+                "if (Test-Path $archive) { Expand-7zipArchive $archive $dir }",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\Uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue",
+                "if (!(Test-Path \"$dir\\Alma.exe\")) { throw 'Alma.exe not found after extraction' }"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "Alma.exe",
+            "Alma"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/yetone/alma-releases"
+    },
+    "autoupdate": {
+        "url": "https://github.com/yetone/alma-releases/releases/download/v$version/alma-$version-win-x64.exe#/dl.7z",
+        "hash": {
+            "mode": "extract",
+            "url": "https://github.com/yetone/alma-releases/releases/expanded_assets/v$version",
+            "regex": "alma-$version-win-x64\\.exe.*?sha256:$sha256"
+        }
+    }
+}
